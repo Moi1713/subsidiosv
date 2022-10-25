@@ -10,6 +10,11 @@ public class AppController {
         return "index";
     }
 
+    @GetMapping("/muestra")
+    public String muestra(){
+        return "muestra";
+    }
+
     @GetMapping("/_layout")
     public String layout(){
         return "_layout";
