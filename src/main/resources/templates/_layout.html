@@ -29,12 +29,6 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: NiceAdmin - v2.4.1
-  * Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
 <body>
@@ -43,7 +37,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a th:href="@{index}" class="logo d-flex align-items-center">
         <img src="assets/img/gobiernocomp.png" alt="" width="27" height="32">
         <span class="d-none d-lg-block">Subsidio SV</span>
       </a>
@@ -58,25 +52,25 @@
                 <a class="nav-profile d-flex align-items-center pe-0">
                   <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
                   <span class="d-none d-md-block ps-2">Administrador</span>
-                </a><!-- End Profile Iamge Icon -->
+                </a><!-- Fin icono perfil de usuario -->
             </li>
         </ul>
     </nav>
 
 
-  </header><!-- End Header -->
+  </header><!-- Fin Header -->
 
-  <!-- ======= Sidebar ======= -->
+  <!-- ======= Sidebar (Menu) ======= -->
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link collapsed" th:href="@{solicitudes}">
           <i class="bi bi-clipboard"></i>
           <span>Solicitudes</span>
         </a>
-      </li><!-- End Nav -->
+      </li><!-- Fin Solicitudes Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
@@ -84,35 +78,38 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="forms-elements.html">
+            <a th:href="@{subsidios}">
               <i class="bi bi-circle"></i><span>Subsidios aplicados</span>
             </a>
-          </li>
+          </li> <!-- Fin Subsidios -->
           <li>
-            <a href="forms-layouts.html">
+            <a th:href="@{confsubsidios}">
               <i class="bi bi-circle"></i><span>Configuracion</span>
             </a>
-          </li>
+          </li><!-- Fin Configuracion -->
         </ul>
       </li><!-- End Subsidios Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link " th:href="@{beneficiarios}">
           <i class='bx bx-list-ul'></i>
           <span>Beneficiarios</span>
         </a>
-      </li><!-- End Nav -->
+      </li><!-- Fin Beneficiarios -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link collapsed" th:href="@{consumo}">
           <i class="bx bx-bulb"></i>
           <span>Consumo de energia</span>
         </a>
-      </li><!-- End Nav -->
+      </li><!-- Fin Consumo -->
 
-      <li>
-        <hr class="dropdown-divider">
-      </li>
+      <li class="nav-item">
+        <a class="nav-link " th:href="@{productos}">
+          <i class='bx bx-cart'></i>
+          <span>Productos</span>
+        </a>
+      </li><!-- Fin Consumo -->
 
       <li class="nav-heading">Cuenta</li>
 
@@ -121,14 +118,23 @@
           <i class="bx bx-user"></i>
           <span>Usuarios</span>
         </a>
-      </li><!-- End Usuarios Page Nav -->
+      </li><!-- Fin Usuarios Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
+        <a class="nav-link " href="pages-faq.html">
           <i class="bx bx-log-out"></i>
           <span>Cerrar Sesion</span>
         </a>
-      </li><!-- End Cerrar Sesion Page Nav -->
+      </li><!-- Fin Cerrar Sesion Page Nav -->
+
+      <li class="nav-heading">Prueba</li>
+
+      <li class="nav-item">
+        <a class="nav-link " th:href="@{muestra}">
+          <i class='bx bx-copy'></i>
+          <span>Muestra</span>
+        </a>
+      </li><!-- Fin Muestra -->
 
     </ul>
 
@@ -145,7 +151,7 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; PRN315-IGF115 <strong><span>Grupo 1</span></strong>. Programacion 3 - Ingenieria de Software
+      <strong><span>&copy;Grupo 1 PRN315-IGF115.</span></strong> Programacion 3 - Ingenieria de Software
     </div>
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
@@ -154,7 +160,7 @@
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
       Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
     </div>
-  </footer><!-- End Footer -->
+  </footer><!-- Fin Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
