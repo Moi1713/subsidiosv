@@ -25,4 +25,9 @@ public class AppController {
         return "usuarios/usuarios";
     }
 
+    @GetMapping("/usuarioslistar")
+    public String usuarioslistar(){
+        return "usuarios/usuarioslistar";
+    }
+
 }
