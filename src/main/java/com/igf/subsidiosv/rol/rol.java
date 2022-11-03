@@ -7,7 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class rol {
+public class Rol {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,22 +33,22 @@ public class rol {
         this.nombre = nombre;
     }
 
-    public rol() {
+    public Rol() {
         super();
     }
 
-    public rol(Integer id, String nombre) {
+    public Rol(Integer id, String nombre) {
         super();
         this.id = id;
         this.nombre = nombre;
     }
 
-    public rol(Integer id) {
+    public Rol(Integer id) {
         super();
         this.id = id;
     }
 
-    public rol(String nombre) {
+    public Rol(String nombre) {
         super();
         this.nombre = nombre;
     }
