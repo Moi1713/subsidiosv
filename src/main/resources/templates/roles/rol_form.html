@@ -21,7 +21,9 @@
                     <div class="card-body">
                       <h5 class="card-title">Agregar/Editar Rol</h5>
 
-                      <br>
+                      <a class="btn btn-danger" role="button" th:href="@{roles}">Regresar</a>
+
+                      <br><br>
         
                       <!-- General Form Elements -->
                       <form th:action="@{/roles/guardar}" th:object="${rol}" method="post">
