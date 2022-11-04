@@ -20,11 +20,6 @@ public class AppController {
         return "_layout";
     }
 
-    @GetMapping("/usuarios")
-    public String usuarios(){
-        return "usuarios/usuarios";
-    }
-
     @GetMapping("/usuarioslistar")
     public String usuarioslistar(){
         return "usuarios/usuarioslistar";

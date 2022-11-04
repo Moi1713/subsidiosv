@@ -20,6 +20,14 @@ public class UsuarioController {
     @Autowired
     private RolRepository rolRepository;
     
+    @GetMapping("/usuarios")
+    public String listarUsuarios(Model model) {
+        List<Usuario> listaUsuarios = usuarioRepository.findAll();
+        model.addAttribute("listaUsuarios", listaUsuarios);
+
+        return "usuarios/usuarios";
+    }
+
     @GetMapping("/usuarionuevo")
     public String mostrarFormularioDeNuevoUsuario(Model model) {
         List<Rol> listaRoles = rolRepository.findAll();
@@ -33,7 +41,7 @@ public class UsuarioController {
     @PostMapping("/usuarios/guardar")
     public String guardarUsuario(Usuario usuario) {
         usuarioRepository.save(usuario);
-        return "redirect:/";
+        return "redirect:/usuarios";
     }
 
 }
