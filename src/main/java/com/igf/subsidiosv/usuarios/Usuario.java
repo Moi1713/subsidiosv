@@ -27,12 +27,13 @@ public class Usuario {
     @Column(length = 100, nullable = false, unique = true)
     private String password;
 
-    @Column(length = 50, nullable = false, unique = true)
+    @Column(length = 100, nullable = false, unique = true)
     private String correo;
 
     @ManyToOne
     @JoinColumn(name = "rol_id")
     private Rol rol;
+
 
     public Integer getId() {
         return id;
