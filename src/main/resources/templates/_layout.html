@@ -38,7 +38,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a th:href="@{index}" class="logo d-flex align-items-center">
+      <a th:href="@{/index/}" class="logo d-flex align-items-center">
         <img th:src="@{/assets/img/gobiernocomp.png}" alt="" width="27" height="32">
         <span class="d-none d-lg-block">Subsidio SV</span>
       </a>
@@ -67,7 +67,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" th:href="@{solicitudes}">
+        <a class="nav-link collapsed" th:href="@{/solicitudes/}">
           <i class="bi bi-clipboard"></i>
           <span>Solicitudes</span>
         </a>
@@ -79,12 +79,12 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a th:href="@{subsidios}">
+            <a th:href="@{/subsidios/}">
               <i class="bi bi-circle"></i><span>Subsidios aplicados</span>
             </a>
           </li> <!-- Fin Subsidios -->
           <li>
-            <a th:href="@{confsubsidios}">
+            <a th:href="@{/confsubsidios/}">
               <i class="bi bi-circle"></i><span>Configuracion</span>
             </a>
           </li><!-- Fin Configuracion -->
@@ -92,21 +92,21 @@
       </li><!-- End Subsidios Nav -->
 
       <li class="nav-item">
-        <a class="nav-link " th:href="@{beneficiarios}">
+        <a class="nav-link " th:href="@{/beneficiarios/}">
           <i class='bx bx-list-ul'></i>
           <span>Beneficiarios</span>
         </a>
       </li><!-- Fin Beneficiarios -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" th:href="@{consumo}">
+        <a class="nav-link collapsed" th:href="@{/consumo/}">
           <i class="bx bx-bulb"></i>
           <span>Consumo de energia</span>
         </a>
       </li><!-- Fin Consumo -->
 
       <li class="nav-item">
-        <a class="nav-link " th:href="@{productos}">
+        <a class="nav-link " th:href="@{/productos/}">
           <i class='bx bx-cart'></i>
           <span>Productos</span>
         </a>
@@ -115,14 +115,14 @@
       <li class="nav-heading">Cuenta</li>
 
       <li class="nav-item">
-        <a class="nav-link " th:href="@{usuarios}">
+        <a class="nav-link " th:href="@{/usuarios/}">
           <i class="bx bx-user"></i>
           <span>Usuarios</span>
         </a>
       </li><!-- Fin Usuarios Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link " th:href="@{roles}">
+        <a class="nav-link " th:href="@{/roles/}">
           <i class="bx bx-user"></i>
           <span>Roles</span>
         </a>
@@ -138,7 +138,7 @@
       <li class="nav-heading">Prueba</li>
 
       <li class="nav-item">
-        <a class="nav-link " th:href="@{muestra}">
+        <a class="nav-link " th:href="@{/muestra/}">
           <i class='bx bx-copy'></i>
           <span>Muestra</span>
         </a>

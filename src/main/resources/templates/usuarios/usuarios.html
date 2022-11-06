@@ -21,7 +21,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Lista de usuarios</h5>
 
-                      <a class="btn btn-primary" role="button" th:href="@{usuarionuevo}"><i class="bi bi-plus-lg me-1"></i> Agregar Usuario</a>
+                      <a class="btn btn-primary" role="button" th:href="@{/usuarionuevo/}"><i class="bi bi-plus-lg me-1"></i> Agregar Usuario</a>
 
                       <br><br>
         
@@ -32,6 +32,7 @@
                             <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Usuario</th>
+                            <th scope="col">Rol</th>
                             <th scope="col">Correo Electrónico</th>
                             <th scope="col">Acciones</th>
                           </tr>
@@ -41,10 +42,11 @@
                             <th scope="row" th:text="${usuario.id}"></th>
                             <td th:text="${usuario.nombre}"></td>
                             <td th:text="${usuario.user}"></td>
+                            <td th:text="${usuario.rol.nombre}"></td>
                             <td th:text="${usuario.correo}"></td>
                             <td>
-                              <a class="btn btn-warning"><i class="bi bi-pencil me-1"></i> Editar</a>
-                              <a class="btn btn-danger" onclick="eliminar"><i class="bi bi-trash me-1"></i> Eliminar</a>
+                              <a th:href="@{/usuarioeditar/}+${usuario.id}"class="btn btn-warning"><i class="bi bi-pencil me-1"></i> Editar</a>
+                              <a th:onclick="eliminar([[@{/usuarioeliminar/}+${usuario.id}]], '/usuarios/')" class="btn btn-danger" onclick="eliminar"><i class="bi bi-trash me-1"></i> Eliminar</a>
 
                             </td>
                           </tr>
@@ -61,34 +63,6 @@
           </div>
             
         </div>
-
-        <script>
-
-          $('.eliminar').click(function(e){
-            e.preventDefault();
-
-            Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-              if (result.isConfirmed) {
-                Swal.fire(
-                  'Deleted!',
-                  'Your file has been deleted.',
-                  'success'
-                )
-              }
-            })
-
-          });
-          
-
-        </script>
 
     </body>
 </html>
