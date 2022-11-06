@@ -1,6 +1,7 @@
 package com.igf.subsidiosv.rol;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +33,14 @@ public class RolController {
     public String guardarRol(Rol rol) {
         rolRepository.save(rol);
         return "redirect:/roles";
+    }
+
+    @GetMapping("/roleditar/{id}")
+    public String mostrarFormularioDeEditarRol(Model model, @PathVariable Integer id) {
+        
+        Optional<Rol> rol = rolRepository.findById(id);
+        model.addAttribute("rol", rol);
+        return "roles/rol_form";
     }
 
     @GetMapping("/roleliminar/{id}")
