@@ -92,11 +92,22 @@
       </li><!-- End Subsidios Nav -->
 
       <li class="nav-item">
-        <a class="nav-link " th:href="@{/beneficiarios/}">
-          <i class='bx bx-list-ul'></i>
-          <span>Beneficiarios</span>
+        <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+          <i class='bx bx-list-ul'></i><span>Beneficiarios</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-      </li><!-- Fin Beneficiarios -->
+        <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a th:href="@{/beneficiarios/}">
+              <i class="bi bi-circle"></i><span>Beneficiarios</span>
+            </a>
+          </li> <!-- Fin Beneficiarios -->
+          <li>
+            <a th:href="@{/beneficios/}">
+              <i class="bi bi-circle"></i><span>Configuracion de Beneficios</span>
+            </a>
+          </li><!-- Fin Beneficios -->
+        </ul>
+      </li><!-- End Beneficiarios Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" th:href="@{/consumo/}">
@@ -109,6 +120,13 @@
         <a class="nav-link " th:href="@{/productos/}">
           <i class='bx bx-cart'></i>
           <span>Productos</span>
+        </a>
+      </li><!-- Fin Consumo -->
+
+      <li class="nav-item">
+        <a class="nav-link " th:href="@{/categorías/}">
+          <i class='bx bx-cart'></i>
+          <span>Categorías</span>
         </a>
       </li><!-- Fin Consumo -->
 
