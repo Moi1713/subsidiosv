@@ -1,15 +1,11 @@
-package com.igf.subsidiosv.categoria;
+package com.igf.subsidiosv.solicitud;
 
-import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-public class categoria {
+public class Solicitud {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(length = 100, nullable = false)
-    private String nombre;
 }
