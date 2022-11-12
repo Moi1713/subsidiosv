@@ -50,9 +50,4 @@ public class Usuario {
         this.rol = rol;
     }
 
-    public Usuario(Integer id) {
-        super();
-        this.id = id;
-    }
-
 }

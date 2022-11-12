@@ -25,30 +25,6 @@ public class Rol {
     @Column(length = 50, nullable = false)
     private String nombre;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Rol(Integer id) {
-        super();
-        this.id = id;
-    }
-
-    public Rol(String nombre) {
-        super();
-        this.nombre = nombre;
-    }
+    
 
 }

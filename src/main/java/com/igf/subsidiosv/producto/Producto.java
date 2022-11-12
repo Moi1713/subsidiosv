@@ -38,19 +38,12 @@ public class Producto {
     @Column(nullable = false)
     private double precio;
 
-    public Producto(Integer id) {
-        super();
-        this.id = id;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public Producto(Categoria categoria) {
-        super();
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
-    }
-
-    public Producto(double precio) {
-        super();
-        this.precio = precio;
     }
     
 }
