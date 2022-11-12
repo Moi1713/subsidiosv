@@ -25,6 +25,4 @@ public class Rol {
     @Column(length = 50, nullable = false)
     private String nombre;
 
-    
-
 }
