@@ -6,6 +6,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Rol {
 
@@ -15,7 +24,6 @@ public class Rol {
 
     @Column(length = 50, nullable = false)
     private String nombre;
-
 
     public Integer getId() {
         return id;
@@ -30,16 +38,6 @@ public class Rol {
     }
 
     public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Rol() {
-        super();
-    }
-
-    public Rol(Integer id, String nombre) {
-        super();
-        this.id = id;
         this.nombre = nombre;
     }
 
