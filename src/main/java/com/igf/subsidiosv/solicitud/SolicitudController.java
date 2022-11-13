@@ -1,5 +1,6 @@
 package com.igf.subsidiosv.solicitud;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,6 +43,7 @@ public class SolicitudController {
 
     @PostMapping("/solicitudes/guardar")
     public String guardarSolicitud(Solicitud solicitud) {
+        solicitud.setEstado("Ingresado");
         solicitudRepository.save(solicitud);
         return "redirect:/solicitudes";
     }
