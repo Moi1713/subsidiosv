@@ -9,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.igf.subsidiosv.empresa.Empresa;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
 
 @Entity
 public class Consumo {
@@ -25,4 +28,8 @@ public class Consumo {
 
     @Column(nullable = false)
     private Integer consumo;
+
+    @Column
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private Date periodo;
 }
