@@ -1,0 +1,80 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="_layout">
+    
+    <body>
+
+        <div layout:fragment="content">
+          <div class="container">
+
+            <div class="pagetitle">
+                <h1>Solicitudes</h1>
+                <nav>
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a th:href="@{/index/}">Subsidio</a></li>
+                    <li class="breadcrumb-item active">Solicitudes</li>
+                  </ol>
+                </nav>
+            </div><!-- End Page Title -->
+
+            <section class="section">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Agregar/Editar Solicitud</h5>
+                      
+                      <a class="btn btn-danger" role="button" th:href="@{/solicitudes/}"><i class='bx bx-arrow-back' ></i> Regresar</a>
+
+                      <br><br>
+        
+                      <!-- General Form Elements -->
+                      <form id="formregistro" th:object="${solicitud}" method="post">
+                        <div class="row mb-3">
+                          <label for="inputText" class="col-sm-2 col-form-label">DUI</label>
+                          <div class="col-sm-10">
+                            <input type="text" id="dui" name="dui" th:field="*{dui}" class="form-control" required>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label class="col-sm-2 col-form-label">Producto</label>
+                          <div class="col-sm-10">
+                            <select th:field="*{producto}" id="producto" name="producto" class="form-select" aria-label="Producto" required>
+                              <th:block th:each="producto: ${listaProductos}">
+                                <option th:text="${producto.nombre}+' '+${producto.categoria.nombre}" th:value="${producto.id}"></option>
+                              </th:block>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label for="inputPassword" class="col-sm-2 col-form-label">Clave</label>
+                          <div class="col-sm-10">
+                            <input type="password" id="clave" name="clave" th:field="*{clave}" class="form-control" required>
+                          </div>
+                        </div>
+
+                        <br><br>
+        
+                        <div class="row mt-40 align-items-end">
+                            <div class="col-sm-5"></div>
+                            <div class="col-sm-2">
+                                <button type="button" onclick="save('/solicitudes/guardar', '/solicitudes/')" class="btn btn-primary"><i class='bx bx-save'></i> Guardar</button>
+                            </div>
+                            <div class="col-sm-5">
+                                <button type="reset" class="btn btn-danger"><i class="bi bi-eraser me-1"></i> Limpiar</button>
+                            </div>
+                        </div>
+
+                        <input type="hidden" th:field="*{id}">
+        
+                      </form><!-- End General Form Elements -->
+        
+                    </div>
+                </div>
+
+            </section>
+          </div>
+            
+        </div>
+
+    </body>
+</html>
