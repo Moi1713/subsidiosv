@@ -25,11 +25,5 @@ public class AppController {
         return "usuarios/usuarioslistar";
     }
 
-    @GetMapping("/empresa/empresa")
-    public String empresa(){
-
-        return "empresa/empresa";
-
-    }
-
+  
 }
