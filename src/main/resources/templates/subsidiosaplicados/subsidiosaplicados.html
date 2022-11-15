@@ -1,0 +1,67 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="_layout">
+    
+    <body>
+
+        <div layout:fragment="content">
+          <div class="container">
+
+            <div class="pagetitle">
+                <h1>Subsidios Aplicados</h1>
+                <nav>
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a th:href="@{index}">Subsidio</a></li>
+                    <li class="breadcrumb-item active">Subsidios Aplicados</li>
+                  </ol>
+                </nav>
+            </div><!-- End Page Title -->
+
+            <section class="section">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Lista de subsidios aplicados</h5>
+        
+                      <!-- Table with hoverable rows -->
+                      <table class="table table-hover datatable">
+                        <thead>
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Beneficiario</th>
+                            <th scope="col">DUI</th>
+                            <th scope="col">Producto</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Subsidio</th>
+                              <th scope="col">Total</th>
+                              <th scope="col">Beneficio</th>
+                              <th scope="col">Fecha de registro</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr th:each="subsidioaplicado: ${listaSubsidiosAplicados}">
+                            <th scope="row" th:text="${subsidioaplicado.id}"></th>
+                            <td th:text="${subsidioaplicado.beneficiario.nombre}"></td>
+                            <td th:text="${subsidioaplicado.beneficiario.dui}"></td>
+                            <td th:text="${subsidioaplicado.producto.nombre}"></td>
+                            <td th:text="${subsidioaplicado.producto.precio}"></td>
+                              <td th:text="${subsidioaplicado.subsidio.monto}"></td>
+                              <td th:text="${subsidioaplicado.total}"></td>
+                              <td th:text="${subsidioaplicado.beneficio.nombre}"></td>
+                              <td th:text="${subsidioaplicado.fecha_registro}"></td>
+                              <td th:text="${usuario.nombre}"></td>
+                          </tr>
+                          
+                        </tbody>
+                      </table>
+                      <!-- End Table with hoverable rows -->
+
+        
+                    </div>
+                </div>
+
+            </section>
+          </div>
+            
+        </div>
+
+    </body>
+</html>
