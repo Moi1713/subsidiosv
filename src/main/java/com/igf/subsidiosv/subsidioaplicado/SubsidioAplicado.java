@@ -1,8 +1,15 @@
 package com.igf.subsidiosv.subsidioaplicado;
 
 import javax.persistence.*;
+import java.util.Date;
 
 import com.igf.subsidiosv.solicitud.Solicitud;
+import com.igf.subsidiosv.beneficiario.Beneficiario;
+import com.igf.subsidiosv.producto.Producto;
+import com.igf.subsidiosv.beneficio.Beneficio;
+import com.igf.subsidiosv.subsidio.Subsidio;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,39 +26,30 @@ public class SubsidioAplicado {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    /*
-
-    @Column(length = 50, nullable = false)
-    private String beneficiario;
-
-    @Column(length = 10, nullable = false)
-    private String dui;
-
-    @Column(length = 50, nullable = false)
-    private String producto;
-
-    @Column(nullable = false)
-    private double precio;
-
-    @Column(nullable = false)
-    private double monto;
-
-    @Column(nullable = false)
-    private double total;
-
     @OneToOne
     @JoinColumn(name = "solicitud_id")
     private Solicitud solicitud;
 
+    @ManyToOne
+    @JoinColumn(name = "beneficiario_id")
+    private Beneficiario beneficiario;
 
+    @ManyToOne
+    @JoinColumn(name = "producto_id")
+    private Producto producto;
 
-    public Solicitud getSolicitud() {
-        return solicitud;
-    }
+    @ManyToOne
+    @JoinColumn(name = "subsidio_id")
+    private Subsidio subsidio;
 
-    public void setCategoria(Solicitud solicitud) {
-        this.solicitud = solicitud;
-    }
-     */
+    @Column(nullable = false)
+    private double total;
+
+    @ManyToOne
+    @JoinColumn(name = "beneficio_id")
+    private Beneficio beneficio;
+
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    private Date fecha_registro;
 
 }

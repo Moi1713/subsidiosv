@@ -21,7 +21,7 @@ import java.util.Map;
 @EnableTransactionManagement
 @EnableJpaRepositories(entityManagerFactoryRef = "subsidioEntityManagerFactory", transactionManagerRef = "subsidioTransactionManager",
         basePackages = { "com.igf.subsidiosv.rol", "com.igf.subsidiosv.usuarios", "com.igf.subsidiosv.beneficiario", "com.igf.subsidiosv.beneficio",
-                "com.igf.subsidiosv.categoria", "com.igf.subsidiosv.producto", "com.igf.subsidiosv.solicitud", "com.igf.subsidiosv.subsidio" })
+                "com.igf.subsidiosv.categoria", "com.igf.subsidiosv.producto", "com.igf.subsidiosv.solicitud", "com.igf.subsidiosv.subsidio", "com.igf.subsidiosv.subsidioaplicado" })
 public class SubsidioSVConf {
 
     @Autowired
@@ -43,7 +43,7 @@ public class SubsidioSVConf {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(subsidioDataSource());
         em.setPackagesToScan("com.igf.subsidiosv.rol", "com.igf.subsidiosv.usuarios", "com.igf.subsidiosv.beneficiario", "com.igf.subsidiosv.beneficio",
-                 "com.igf.subsidiosv.categoria", "com.igf.subsidiosv.producto", "com.igf.subsidiosv.solicitud", "com.igf.subsidiosv.subsidio");
+                 "com.igf.subsidiosv.categoria", "com.igf.subsidiosv.producto", "com.igf.subsidiosv.solicitud", "com.igf.subsidiosv.subsidio", "com.igf.subsidiosv.subsidioaplicado");
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
