@@ -9,10 +9,20 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.igf.subsidiosv.empresa.Empresa;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Consumo {
     @Id

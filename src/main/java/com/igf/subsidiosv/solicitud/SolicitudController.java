@@ -34,7 +34,6 @@ public class SolicitudController {
     @GetMapping("/solicitudnuevo")
     public String mostrarFormularioDeNuevaSolicitud(Model model) {
         List<Producto> listaProductos = productoRepository.findAll();
-
         model.addAttribute("solicitud", new Solicitud());
         model.addAttribute("listaProductos", listaProductos);
 

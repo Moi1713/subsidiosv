@@ -31,33 +31,33 @@
                                     <div class="row mb-3">
                                         <label for="inputText" class="col-sm-2 col-form-label">DUI</label>
                                         <div class="col-sm-10">
-                                        <input type="text" id="dui" name="dui"    class="form-control" required>
+                                        <input type="text" id="dui" name="dui" th:field="*{dui}" class="form-control" required>
                                         </div>
                                     </div>
 
                                     <div class="row mb-3">
                                         <label  class="col-sm-2 col-form-label">Empresa</label>
                                         <div class="col-sm-10">
-                                          <select  id="empresa" name="empresa" class="form-select" aria-label="Empresa" required>
+                                          <select  th:field="*{empresa}" id="empresa" name="empresa" class="form-select" aria-label="Empresa" required>
                                             <th:block th:each="empresa: ${listaEmpresas}">
-                                              <option th:text="${empresa.nombre}+' '+${empresa.nombre}" th:value="${empresa.id}"></option>
+                                              <option th:text="${empresa.nombre}" th:value="${empresa.id}"></option>
                                             </th:block>
                                           </select>
                                         </div>
                                       </div> 
                                 
-
+                                      
                                 <div class="row mb-3">
-                                    <label for="inputText" class="col-sm-2 col-form-label">Periodo</label>
+                                    <label for="inputDate" class="col-sm-2 col-form-label">Periodo</label>
                                     <div class="col-sm-10">
-                                      <input type="text" id="periodo" name="periodo"    class="form-control" required>
+                                      <input th:field="*{periodo}" type="date" id="periodo" name="periodo" class="form-control" required>
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
                                     <label for="inputText" class="col-sm-2 col-form-label">Consumo (KWh)</label>
                                     <div class="col-sm-10">
-                                      <input type="number" id="consumo" name="consumo"  class="form-control" required>
+                                      <input th:field="*{consumo}" type="number" id="consumo" name="consumo"  class="form-control" required>
                                     </div>
                                 </div>
     
