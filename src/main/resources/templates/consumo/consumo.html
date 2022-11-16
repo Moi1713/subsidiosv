@@ -39,7 +39,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr th:each="consumo: ${listaEmpresas}">
+                          <tr th:each="consumo: ${listaConsumos}">
                             <th scope="row" th:text="${consumo.id}"></th>
                             <td th:text="${consumo.dui}"></td>
                             <td th:text="${consumo.empresa.nombre}"></td>
