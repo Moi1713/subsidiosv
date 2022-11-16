@@ -36,7 +36,7 @@ public class ProductoController {
     }
 
     @PostMapping("/productos/guardar")
-    public String guardarUsuario(Producto producto) {
+    public String guardarProducto(Producto producto) {
         productoRepository.save(producto);
 
         return "redirect:/productos";
