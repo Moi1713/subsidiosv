@@ -1,68 +1,62 @@
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="_layout">
-
+    layout:decorate="_layout">
+    
     <body>
 
         <div layout:fragment="content">
-            <div class="container">
+          <div class="container">
 
-                <div class="pagetitle">
-                    <h1>Empresa</h1>
-                    <nav>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a th:href="@{/index/}">Subsidio</a></li>
-                            <li class="breadcrumb-item active">Empresa</li>
-                        </ol>
-                    </nav>
-                </div><!-- End Page Title -->
+            <div class="pagetitle">
+                <h1>Empresa </h1>
+                <nav>
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a th:href="@{index}">Subsidio</a></li>
+                    <li class="breadcrumb-item active">Empresa</li>
+                  </ol>
+                </nav>
+            </div><!-- End Page Title -->
 
-                <section class="section">
+            <section class="section">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Lista de empresas</h5>
 
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Agregar empresa</h5>
+                      <a class="btn btn-primary" role="button" th:href="@{/empresanuevo/}"><i class="bi bi-plus-lg me-1"></i> Agregar Empresa</a>
 
-                            <form id="formregistro" th:object="${empresa}" method="post">
-
-                                <div class="row mb-3">
-                                    <label for="inputText" class="col-sm-2 col-form-label">Nombre</label>
-                                    <div class="col-sm-10">
-                                      <input type="text" id="nombre" name="nombre" th:field="*{nombre}"   class="form-control" required>
-                                    </div>
-                                </div>
-    
-                             
-    
-                                <div class="row mt-40 align-items-end">
-                                    <div class="col-sm-5"></div>
-    
-                                    <div class="col-sm-2">
-                                        <button type="button" onclick="save('/empresa/guardar', '/empresa/')" 
-                                        class="btn btn-primary"><i class='bx bx-save'></i> Guardar</button>
-                                    </div>
-    
-                                    <div class="col-sm-5">
-                                        <button type="reset" class="btn btn-danger"> <i class="bi bi-eraser me-1"></i> Limpiar</button>
-                                    </div>
-    
-                                </div>
-
-                                <input type="hidden" th:field="*{id}">
-
-                            </form>
-
-                            
-                                
-                            
-
+                      <br><br>
+        
+                      <!-- Table with hoverable rows -->
+                      <table class="table table-hover datatable">
+                        <thead>
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Acciones</th>
                           
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr th:each="empresa: ${listaEmpresas}">
+                            <th scope="row" th:text="${empresa.id}"></th>
+                            <td th:text="${empresa.nombre}"></td>
+                            <td>
+                              <a th:href="@{/empresaeditar/}+${empresa.id}"class="btn btn-warning"><i class="bi bi-pencil me-1"></i> Editar</a>
+                              <a th:onclick="eliminar([[@{/empresaeliminar/}+${empresa.id}]], '/empresa/')" class="btn btn-danger" onclick="eliminar"><i class="bi bi-trash me-1"></i> Eliminar</a>
 
-                        </div>
+                            </td>
+                          </tr>
+                          
+                        </tbody>
+                      </table>
+                      <!-- End Table with hoverable rows -->
+
+        
                     </div>
+                </div>
 
-                </section>
-            </div>
-
+            </section>
+          </div>
+            
         </div>
 
     </body>
