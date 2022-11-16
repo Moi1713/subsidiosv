@@ -1,0 +1,61 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="_layout">
+    
+    <body>
+
+        <div layout:fragment="content">
+          <div class="container">
+
+            <div class="pagetitle">
+                <h1>Categorías</h1>
+                <nav>
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a th:href="@{/index/}">Subsidio</a></li>
+                    <li class="breadcrumb-item active">Categorías</li>
+                  </ol>
+                </nav>
+            </div><!-- End Page Title -->
+
+            <section class="section">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Agregar/Editar Categorías</h5>
+
+                      <a class="btn btn-danger" categoria="button" th:href="@{/categorías/}"><i class='bx bx-arrow-back' ></i> Regresar</a>
+
+                      <br><br>
+        
+                      <!-- General Form Elements -->
+                      <form id="formregistro" th:object="${categoria}" method="post">
+                        <div class="row mb-3">
+                          <label for="inputText" class="col-sm-2 col-form-label">Nombre</label>
+                          <div class="col-sm-10">
+                            <input type="text" id="nombre" name="nombre" th:field="*{nombre}" class="form-control" required>
+                          </div>
+                        </div>
+
+                        <br><br>
+        
+                        <div class="row mt-40 align-items-end">
+                            <div class="col-sm-5"></div>
+                            <div class="col-sm-2">
+                                <button type="button" onclick="save('/categorías/guardar', '/categorías/')" class="btn btn-primary"><i class='bx bx-save'></i> Guardar</button>
+                            </div>
+                            <div class="col-sm-5">
+                                <button type="reset" class="btn btn-danger"><i class="bi bi-eraser me-1"></i> Limpiar</button>
+                            </div>
+                        </div>
+
+                        <input type="hidden" th:field="*{id}">
+        
+                      </form><!-- End General Form Elements -->
+        
+                    </div>
+                </div>
+            </section>
+          </div>
+            
+        </div>
+
+    </body>
+</html>
