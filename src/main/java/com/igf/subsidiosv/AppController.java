@@ -22,7 +22,12 @@ public class AppController {
 
     @GetMapping("/usuarioslistar")
     public String usuarioslistar(){
-        return "usuarios/usuarioslistar";
+        return "usuarioslistar";
+    }
+
+    @GetMapping("/usuariosmuestra")
+    public String usuariosmuestra(){
+        return "usuariosmuestra";
     }
 
   
