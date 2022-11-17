@@ -30,7 +30,7 @@ public class SubsidioContoller {
     @Autowired
     private RolRepository rolRepository;
    
-    @GetMapping("/subsidio")
+    @GetMapping("/subsidios")
     public String listarsubsidio(Model model) {
         List<Subsidio> listaSubsidio = subsidioRepository.findAll();
         model.addAttribute("listaSubsidio", listaSubsidio);
@@ -59,7 +59,7 @@ public class SubsidioContoller {
     }
 
 
-    @PostMapping("/subsidio/guardar")
+    @PostMapping("/subsidios/guardar")
     public String guardarSubsidio(Subsidio subsidio) {
         subsidioRepository.save(subsidio);
         return "redirect:/subsidios";
