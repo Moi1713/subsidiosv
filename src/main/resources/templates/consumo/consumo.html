@@ -43,7 +43,7 @@
                             <th scope="row" th:text="${consumo.id}"></th>
                             <td th:text="${consumo.dui}"></td>
                             <td th:text="${consumo.empresa.nombre}"></td>
-                            <td th:text="${consumo.periodo}"></td>
+                            <td th:text="${#dates.format(consumo.periodo, 'dd/MM/yyyy')}"></td>
                            
                             <td th:text="${consumo.consumo}"></td>
                             <td>

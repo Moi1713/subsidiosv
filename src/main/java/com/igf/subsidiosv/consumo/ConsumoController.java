@@ -44,7 +44,7 @@ public class ConsumoController {
     @PostMapping("/consumo/guardar")
     public String guadarConsumo(Consumo consumo){
         consumoRepository.save(consumo);
-        return "redirect:/consumo/consumo_form";
+        return "redirect:/consumo";
 
     }
     @GetMapping("/consumoeditar/{id}")
