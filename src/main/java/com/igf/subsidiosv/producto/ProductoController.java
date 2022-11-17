@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
+import java.util.Optional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class ProductoController {
@@ -41,6 +43,17 @@ public class ProductoController {
 
         return "redirect:/productos";
     }
-
-    // TODO implementar opciones para editar y eliminar un producto.
+ @GetMapping("/editarproductos/{id}")
+    public String mostrarFormularioDeEditarProducto(Model model, @PathVariable Integer id) {
+        List<Categoria> listaCategorias=categoriaRepository.findAll();
+        Optional<Producto> producto = productoRepository.findById(id);
+        model.addAttribute("listaCategorias", listaCategorias);
+        model.addAttribute("producto", producto);
+        return "productos/producto_form";
+    }
+    @GetMapping("/eliminarproductos/{id}")
+    public String eliminarProducto(Model model, @PathVariable Integer id) {
+        productoRepository.deleteById(id);
+        return "redirect:/productos";
+    }
 }
