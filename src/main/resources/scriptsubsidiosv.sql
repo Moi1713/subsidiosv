@@ -14,3 +14,4 @@ INSERT INTO `beneficio` (`id`, `nombre`) VALUES ('1', 'General'), ('2', 'Focaliz
 INSERT INTO `beneficiario` (`id`, `clave`, `direccion`, `dui`, `nombre`, `beneficio_id`) VALUES ('1', '123', 'San Salvador', '123456789', 'Juan Pérez', '2'), ('2', '123', 'Soyapango', '987654321', 'Jose Jose', '1'), ('3', '123', 'Mejicanos', '111122223', 'Margarita del Campo', '2'), ('4', '123', 'San Martin', '222233334', 'Chamba Perez', '1');
 
 INSERT INTO `subsidio` (`id`, `activo`, `canjeos`, `monto`, `beneficio_id`, `producto_id`) VALUES ('1', NULL, '1', '0.85', '1', '3'), ('2', NULL, '1', '5.46', '2', '3'), ('3', NULL, '1', '2.09', '1', '2'), ('4', NULL, '1', '10.13', '2', '2'), ('5', NULL, '1', '2.93', '1', '1'), ('6', NULL, '1', '10.97', '2', '1');
+

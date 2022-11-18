@@ -40,6 +40,10 @@ public class Subsidio {
     @Column(nullable = false)
     private Integer canjeos;
 
-    @Column
-    private Boolean activo;
+    @Column(length = 25, nullable = false)
+    private String activo;
+
+    
+
+    
 }

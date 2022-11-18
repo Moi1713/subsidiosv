@@ -1,90 +1,124 @@
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorate="_layout">
-    
-    <body>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="_layout">
 
-        <div layout:fragment="content">
-          <div class="container">
+<body>
 
-            <div class="pagetitle">
-                <h1>Configuracion de Subsidio</h1>
-                <nav>
-                    <ol class="breadcrumb">
-                      <li class="breadcrumb-item"><a th:href="@{/index/}">Subsidio</a></li>
-                      <li class="breadcrumb-item active">subsidios</li>
-                    </ol>
-                  </nav>
-            </div><!-- End Page Title -->
+  <div layout:fragment="content">
+    <div class="container">
 
-            <section class="section">
-                <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Agregar/Editar Subsidio</h5>
-                      
-                      <a class="btn btn-danger" role="button" th:href="@{/subsidios/}"><i class='bx bx-arrow-back' ></i> Regresar</a>
+      <div class="pagetitle">
+        <h1>Configuracion de Subsidio</h1>
+        <nav>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a th:href="@{/index/}">Subsidios</a></li>
+            <li class="breadcrumb-item active">Configuracion</li>
+          </ol>
+        </nav>
+      </div><!-- End Page Title -->
 
-                      <br><br>
-        
-                      <!-- General Form Elements -->
-                      <form id="formregistro" th:object="${subsidio}" method="post">
-                        <div class="row mb-3">
-                          <label for="inputText" class="col-sm-2 col-form-label">Tipo de beneficio</label>
-                          <div class="col-sm-10">
-                            <select th:field="*{rol}" id="rol" name="rol" class="form-select" aria-label="Rol" required>
-                                <th:block th:each="rol: ${listaRoles}">
-                                  <option th:text="${rol.beneficio}" th:value="${rol.id}"></option>
-                                </th:block>
-                              </select>
-                          </div>
-                        </div>
-                        
-                        <form id="formregistro" th:object="${subsidio}" method="post"></form>
-                        <div class="row mb-3">
-                            <label for="user" class="col-sm-2 col-form-label">Producto</label>
-                            <div class="col-sm-10">
-                                <select th:field="*{rol}" id="rol" name="rol" class="form-select" aria-label="Rol" required>
-                                    <th:block th:each="rol: ${listaRoles}">
-                                      <option th:text="${rol.producto}" th:value="${rol.id}"></option>
-                                    </th:block>
-                                  </select>
-                            </div>
-                        </div>
+      <section class="section">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Agregar Subsidio</h5>
 
-                        <form id="formregistro" th:object="${subsidio}" method="post"></form>
-                        <div class="row mb-3">
-                            <label for="user" class="col-sm-2 col-form-label">Estado</label>
-                            <div class="col-sm-10">
-                                <select th:field="*{rol}" id="rol" name="rol" class="form-select" aria-label="Rol" required>
-                                    <th:block th:each="rol: ${listaRoles}">
-                                      <option th:text="${rol.activo}" th:value="${rol.id}"></option>
-                                    </th:block>
-                                  </select>
-                            </div>
-                        </div>
+            <a class="btn btn-danger" role="button" th:href="@{/subsidios/}"><i class='bx bx-arrow-back'></i>
+              Regresar</a>
 
-                        <br><br>
-        
-                        <div class="row mt-40 align-items-end">
-                            <div class="col-sm-5"></div>
-                            <div class="col-sm-2">
-                                <button type="button" onclick="save('/subsidios/guardar', '/subsidios/')" class="btn btn-primary"><i class='bx bx-save'></i> Guardar</button>
-                            </div>
-                            <div class="col-sm-5">
-                                <button type="reset" class="btn btn-danger"><i class="bi bi-eraser me-1"></i> Limpiar</button>
-                            </div>
-                        </div>
+            <br><br>
 
-                        <input type="hidden" th:field="*{id}">
-        
-                      </form><!-- End General Form Elements -->
-        
-                    </div>
+            <!-- General Form Elements -->
+            <form id="formregistro" th:object="${subsidio}" method="post">
+
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Beneficio</label>
+                <div class="col-sm-10">
+                  <select field="*{beneficio}" id="beneficio" name="beneficio" class="form-select"
+                    aria-label="Beneficio" required>
+                    <th:block th:each="beneficio: ${listaBeneficio}">
+                      <option th:text="${beneficio.nombre}" th:value="${beneficio.id}"></option>
+                    </th:block>
+                  </select>
                 </div>
+              </div>
 
-            </section>
+
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Producto</label>
+                <div class="col-sm-10">
+                  <select th:field="*{producto}" id="producto" name="producto" class="form-select" aria-label="Producto"
+                    required>
+                    <th:block th:each="producto: ${listaProductos}">
+                      <option th:text="${producto.nombre}+' '+${producto.categoria.nombre}" th:value="${producto.id}">
+                      </option>
+                    </th:block>
+                  </select>
+                </div>
+              </div>
+              <br>
+
+              <div class="row mb-3">
+                <label for="inputNumber" class="col-sm-2 col-form-label">Monto</label>
+                <div class="col-sm-10">
+                  <input type="number" id="monto" name="monto" th:field="*{monto}" class="form-control" required />
+                  <div class="invalid-feedback">
+                    Ingrese el monto del producto
+                  </div>
+                </div>
+              </div>
+              <br>
+
+              <div class="row mb-3">
+                <label for="inputNumber" class="col-sm-2 col-form-label">Canjeos mes</label>
+                <div class="col-sm-10">
+                  <input type="number" id="canjeos" name="canjeos" th:field="*{canjeos}" class="form-control" required />
+                  <div class="invalid-feedback">
+                    Ingrese el canjeo del producto
+                  </div>
+                </div>
+              </div>
+
+              <br>
+
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label">Estado</label>
+                <div class="col-sm-10">
+                  <select th:field="*{activo}" id="activo" name="activo" class="form-select" aria-label="Activo"
+                    required>
+                    
+                      <option value="Activo">Activo</option>
+                      <option value="Inactivo"> Inactivo</option>
+                    
+                  </select>
+                </div>
+              </div>
+
+              <br>
+
+              <div class="row mt-40 align-items-end">
+                <div class="col-sm-5"></div>
+                <div class="col-sm-2">
+                  <button type="button" onclick="save('/subsidios/guardar', '/subsidios/')" class="btn btn-primary"><i
+                      class='bx bx-save'></i> Guardar</button>
+                </div>
+                <div class="col-sm-5">
+                  <button type="reset" class="btn btn-danger">
+                    <i class="bi bi-eraser me-1"></i>
+                    Limpiar
+                  </button>
+                </div>
+              </div>
+
+              <input type="hidden" th:field="*{id}">
+
+            </form><!-- End General Form Elements -->
+
           </div>
-            
         </div>
 
-    </body>
+      </section>
+    </div>
+
+  </div>
+
+</body>
+
 </html>
