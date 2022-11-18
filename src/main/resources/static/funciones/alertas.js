@@ -1,50 +1,12 @@
 //Funciones de SweetAlert2
 
 
-//confirmación para guardar un registro - PENDIENTE -
-/*
-function guardar() {
-    //linea.submit(event)
-    Swal.fire({
-        title: '¿Está seguro?',
-        text: "Se guardará un nuevo registro",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si',
-        cancelButtonText: 'No'
-      }).then((result) => {
-        if (result.isConfirmed) {
-            $.ajax({
-                method: "POST",
-                url:"/roles/guardar",
-                success: function(res) {
-                    console.log(res);
-                }
-            });
-            Swal.fire({
-                title: '¡Guardado!',
-                text: 'El registro ha sido creado exitosamente.',
-                icon: 'success',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'Aceptar',
-            }).then((Result)=>{
-                if(Result){
-                    location.href="/roles";
-                }
-            });
-        }
-      })
-}
-*/
-
 function save(link, redirect) {
 
     console.log("funciona");
     Swal.fire({
         title: '¿Está seguro?',
-        text: "Se guardará un nuevo registro",
+        text: "Se guardará el registro",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -63,7 +25,7 @@ function save(link, redirect) {
             });
             Swal.fire({
                 title: '¡Guardado!',
-                text: 'El registro ha sido creado exitosamente.',
+                text: 'El registro ha sido guardado exitosamente.',
                 icon: 'success',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'Aceptar',
@@ -109,6 +71,60 @@ function eliminar(link, redirect) {
                     location.href=redirect;
                 }
             });
+        }
+      })
+}
+
+//Validar Registro
+
+function validar(link, redirect) {
+    Swal.fire({
+        title: '¿Está seguro?',
+        text: "Se validará la solicitud seleccionada",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si',
+        cancelButtonText: 'No'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                method: "POST",
+                url: link,
+                success: function(result) {
+                    console.log(result);
+                     if (result.code == '0') {
+                            Swal.fire({
+                                 title: '¡Validación Exitosa!',
+                                 text: result.msj,
+                                 icon: 'success',
+                                 confirmButtonColor: '#3085d6',
+                                 confirmButtonText: 'Aceptar',
+                                                    }).then((Result)=>{
+                                                        if(Result){
+
+                                                            location.href='/solicitudes/';
+                                                        }
+                                                       });
+                    }else{
+                        Swal.fire({
+                                                         title: '¡Error de Validación!',
+                                                         text: result.msj,
+                                                         icon: 'error',
+                                                         confirmButtonColor: '#3085d6',
+                                                         confirmButtonText: 'Aceptar',
+                                                                            }).then((Result)=>{
+                                                                                              if(Result){
+
+                                                                                                  location.href='/solicitudes/';
+                                                                                              }
+                                                                                          });
+                    }
+
+                }
+            });
+
         }
       })
 }

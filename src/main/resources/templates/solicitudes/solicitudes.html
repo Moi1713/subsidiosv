@@ -1,67 +1,67 @@
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorate="_layout">
-    
-    <body>
+      layout:decorate="_layout">
 
-        <div layout:fragment="content">
-          <div class="container">
 
-            <div class="pagetitle">
-                <h1>Solicitudes</h1>
-                <nav>
-                  <ol class="breadcrumb">
+<body>
+
+<div layout:fragment="content">
+    <div class="container">
+
+        <div class="pagetitle">
+            <h1>Solicitudes</h1>
+            <nav>
+                <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a th:href="@{index}">Subsidio</a></li>
                     <li class="breadcrumb-item active">Solicitudes</li>
-                  </ol>
-                </nav>
-            </div><!-- End Page Title -->
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
 
-            <section class="section">
-                <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title">Lista de solicitudes</h5>
+        <section class="section">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Lista de solicitudes</h5>
 
-                      <a class="btn btn-primary" role="button" th:href="@{/solicitudnuevo/}"><i class="bi bi-plus-lg me-1"></i> Agregar Solicitud</a>
+                    <a class="btn btn-primary" role="button" th:href="@{/solicitudnuevo/}"><i class="bi bi-plus-lg me-1"></i> Agregar Solicitud</a>
 
-                      <br><br>
-        
-                      <!-- Table with hoverable rows -->
-                      <table class="table table-hover datatable">
+                    <br><br>
+
+                    <!-- Table with hoverable rows -->
+                    <table class="table table-hover datatable">
                         <thead>
-                          <tr>
+                        <tr>
                             <th scope="col">ID</th>
                             <th scope="col">DUI</th>
                             <th scope="col">Producto</th>
                             <th scope="col">Estado</th>
                             <th scope="col">Acciones</th>
-                          </tr>
+                        </tr>
                         </thead>
                         <tbody>
-                          <tr th:each="solicitud: ${listaSolicitudes}">
+                        <tr th:each="solicitud: ${listaSolicitudes}">
                             <th scope="row" th:text="${solicitud.id}"></th>
                             <td th:text="${solicitud.dui}"></td>
                             <td th:text="${solicitud.producto.nombre}+', '+${solicitud.producto.categoria.nombre}"></td>
                             <td th:text="${solicitud.estado}"></td>
                             <td>
-                              <a th:href="@{/solicitudeditar/}+${solicitud.id}"class="btn btn-warning"><i class="bi bi-pencil me-1"></i> Editar</a>
-                              <a th:onclick="eliminar([[@{/solicitudeliminar/}+${solicitud.id}]], '/solicitudes/')" class="btn btn-danger" onclick="eliminar"><i class="bi bi-trash me-1"></i> Eliminar</a>
-                              <a th:href="@{/solicitudeditar/}+${solicitud.id}"class="btn btn-success"><i class="bi bi-clipboard2-check me-1"></i> Validar</a>
+                                <a th:href="@{/solicitudeditar/}+${solicitud.id}"class="btn btn-warning"><i class="bi bi-pencil me-1"></i> Editar</a>
+                                <a th:onclick="eliminar([[@{/solicitudeliminar/}+${solicitud.id}]], '/solicitudes/')" class="btn btn-danger" onclick="eliminar"><i class="bi bi-trash me-1"></i> Eliminar</a>
+                                <a th:onclick="validar([[@{/validarSolicitudes/}+${solicitud.id}]], '/solicitudes/')"class="btn btn-success"><i class="bi bi-clipboard2-check me-1"></i> Validar</a>
 
                             </td>
-                          </tr>
-                          
+                        </tr>
+
                         </tbody>
-                      </table>
-                      <!-- End Table with hoverable rows -->
+                    </table>
+                    <!-- End Table with hoverable rows -->
 
-        
-                    </div>
                 </div>
+            </div>
 
-            </section>
-          </div>
-            
-        </div>
+        </section>
+    </div>
 
-    </body>
+</div>
+
+</body>
 </html>
