@@ -1,0 +1,70 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="_layout">
+    
+    <body>
+
+        <div layout:fragment="content">
+          <div class="container">
+
+            <div class="pagetitle">
+                <h1>Beneficiario</h1>
+                <nav>
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a th:href="@{index}">Subsidio</a></li>
+                    <li class="breadcrumb-item active">Beneficiario</li>
+                  </ol>
+                </nav>
+            </div><!-- End Page Title -->
+
+            <section class="section">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Lista de los beneficiario</h5>
+                      <br>
+
+                      <a class="btn btn-primary" role="button" th:href="@{/beneficiarionuevo/}"><i class="bi bi-plus-lg me-1"></i> Agregar beneficiario</a>
+
+                      <br><br>
+        
+                      <!-- Table with hoverable rows -->
+                      <table class="table table-hover datatable">
+                        <thead>
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Clave</th>
+                            <th scope="col">dui</th>
+                            <th scope="col">direccion</th>
+                            <th scope="col">Acciones</th>
+                            
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr th:each="beneficiario: ${listaBeneficiarios}">
+                            <th scope="row" th:text="${beneficiario.id}"></th>
+                            <td th:text="${beneficiario.nombre}"></td>
+                            <td th:text="${beneficiario.clave}"></td>
+                            <td th:text="${beneficiario.beneficio.nombre}"></td>
+                            <td th:text="${beneficiario.direccion}"></td>
+
+                            <td>
+                              <a th:href="@{/beneficiarioeditar/}+${beneficiario.id}" class="btn btn-warning"><i class="bi bi-pencil me-1"></i> Editar</a>
+                              <a th:onclick="eliminar([[@{/beneficiarioeliminar/}+${beneficiario.id}]], '/beneficiarios/')" class="btn btn-danger"><i class="bi bi-trash me-1"></i> Eliminar</a>
+                            </td>
+                          </tr>
+                          
+                        </tbody>
+                      </table>
+                      <!-- End Table with hoverable rows -->
+
+        
+                    </div>
+                </div>
+
+            </section>
+          </div>
+            
+        </div>
+
+    </body>
+</html>
