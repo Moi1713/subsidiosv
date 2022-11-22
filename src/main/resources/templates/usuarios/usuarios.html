@@ -41,7 +41,7 @@
                           <tr th:each="usuario: ${listaUsuarios}">
                             <th scope="row" th:text="${usuario.id}"></th>
                             <td th:text="${usuario.nombre}"></td>
-                            <td th:text="${usuario.user}"></td>
+                            <td th:text="${usuario.username}"></td>
                             <td th:text="${usuario.rol.nombre}"></td>
                             <td th:text="${usuario.correo}"></td>
                             <td>

@@ -30,14 +30,16 @@
                       <table class="table table-hover datatable">
                         <thead>
                           <tr>
+                            <th scope="col">#</th>
                             <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Acciones</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr th:each="rol: ${listaRoles}">
-                            <th scope="row" th:text="${rol.id}"></th>
+                          <tr th:each="rol,iterador: ${listaRoles}">
+                            <th scope="row" th:text="${iterador.index + 1}"></th>
+                            <th th:text="${rol.id}"></th>
                             <td th:text="${rol.nombre}"></td>
                             <td>
                               <a th:href="@{/roleditar/}+${rol.id}" class="btn btn-warning"><i class="bi bi-pencil me-1"></i> Editar</a>

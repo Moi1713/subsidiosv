@@ -1,6 +1,7 @@
 package com.igf.subsidiosv;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class AppController {
@@ -10,14 +11,20 @@ public class AppController {
         return "index";
     }
 
-    @GetMapping("/muestra")
-    public String muestra(){
-        return "muestra";
-    }
+    @RequestMapping("/login")
+    public String loginPage() { return "login"; }
+
+    @RequestMapping("/logout")
+    public String logoutPage() { return "login"; }
 
     @GetMapping("/_layout")
     public String layout(){
         return "_layout";
+    }
+
+    @GetMapping("/muestra")
+    public String muestra(){
+        return "muestra";
     }
 
     @GetMapping("/usuarioslistar")

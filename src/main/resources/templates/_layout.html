@@ -52,7 +52,7 @@
 
                 <a class="nav-profile d-flex align-items-center pe-0">
                   <img th:src="@{/assets/img/profile-img.jpg}" alt="Profile" class="rounded-circle">
-                  <span class="d-none d-md-block ps-2">Administrador</span>
+                  <span class="d-none d-md-block ps-2">[[${#request.remoteUser}]]</span>
                 </a><!-- Fin icono perfil de usuario -->
             </li>
         </ul>
@@ -153,20 +153,11 @@
       </li><!-- Fin Usuarios Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
+        <a class="nav-link collapsed" th:href="@{/logout/}">
           <i class="bx bx-log-out"></i>
           <span>Cerrar Sesion</span>
         </a>
       </li><!-- Fin Cerrar Sesion Page Nav -->
-
-      <li class="nav-heading">Prueba</li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" th:href="@{/muestra/}">
-          <i class='bx bx-copy'></i>
-          <span>Muestra</span>
-        </a>
-      </li><!-- Fin Muestra -->
 
     </ul>
 

@@ -32,8 +32,8 @@
                           <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Clave</th>
                             <th scope="col">dui</th>
+                              <th scope="col">Beneficio</th>
                             <th scope="col">direccion</th>
                             <th scope="col">Acciones</th>
                             
@@ -43,7 +43,7 @@
                           <tr th:each="beneficiario: ${listaBeneficiarios}">
                             <th scope="row" th:text="${beneficiario.id}"></th>
                             <td th:text="${beneficiario.nombre}"></td>
-                            <td th:text="${beneficiario.clave}"></td>
+                            <td th:text="${beneficiario.dui}"></td>
                             <td th:text="${beneficiario.beneficio.nombre}"></td>
                             <td th:text="${beneficiario.direccion}"></td>
 

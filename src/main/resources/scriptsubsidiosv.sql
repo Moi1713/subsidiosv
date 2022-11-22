@@ -7,7 +7,8 @@ INSERT INTO `solicitud` (`id`, `clave`, `dui`, `estado`, `fecha_ingreso`, `produ
 
 INSERT INTO `rol` (`id`, `nombre`) VALUES ('1', 'Administrador'), ('2', 'Vendedor'), ('3', 'Tecnico');
 
-INSERT INTO `usuario` (`id`, `correo`, `nombre`, `password`, `user`, `rol_id`) VALUES ('1', 'admin@correo.com', 'Admin', '123', 'admin', '1');
+INSERT INTO `usuario` (`id`, `correo`, `nombre`, `password`, `user`, `rol_id`) VALUES ('1', 'admin@correo.com', 'Admin', '$2a$12$Da1lpXzdbYNuHgMAGLUHm./XoknVkLAwu81EyrxSRlFsS0E7o22YK', 'admin', '1');
+INSERT INTO `usuario` (`id`, `correo`, `nombre`, `password`, `username`, `rol_id`) VALUES (2, 'vendedor@correo.com', 'Ventas', '$2a$12$Da1lpXzdbYNuHgMAGLUHm./XoknVkLAwu81EyrxSRlFsS0E7o22YK', 'vendedor', '2'), (3, 'tecnico@correo.com', 'Técnico de Registro', '$2a$12$Da1lpXzdbYNuHgMAGLUHm./XoknVkLAwu81EyrxSRlFsS0E7o22YK', 'tecnico', '3');
 
 INSERT INTO `beneficio` (`id`, `nombre`) VALUES ('1', 'General'), ('2', 'Focalizado');
 

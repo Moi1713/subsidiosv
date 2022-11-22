@@ -30,7 +30,7 @@ public class Usuario {
     private String nombre;
 
     @Column(length = 50, nullable = false, unique = true)
-    private String user;
+    private String username;
 
     @Column(length = 100, nullable = false)
     private String password;
@@ -42,9 +42,7 @@ public class Usuario {
     @JoinColumn(name = "rol_id")
     private Rol rol;
 
-    public Rol getRol() {
-        return rol;
-    }
+    public String getRole() { return rol.getNombre(); }
 
     public void setRol(Rol rol) {
         this.rol = rol;

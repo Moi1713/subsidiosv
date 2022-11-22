@@ -109,17 +109,16 @@ function validar(link, redirect) {
                                                        });
                     }else{
                         Swal.fire({
-                                                         title: '¡Error de Validación!',
-                                                         text: result.msj,
-                                                         icon: 'error',
-                                                         confirmButtonColor: '#3085d6',
-                                                         confirmButtonText: 'Aceptar',
-                                                                            }).then((Result)=>{
-                                                                                              if(Result){
-
-                                                                                                  location.href='/solicitudes/';
-                                                                                              }
-                                                                                          });
+                            title: '¡Error de Validación!',
+                            text: result.msj,
+                            icon: 'error',
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'Aceptar',
+                            }).then((Result)=>{
+                                if(Result){
+                                    location.href='/solicitudes/';
+                                                                                                  }
+                            });
                     }
 
                 }
